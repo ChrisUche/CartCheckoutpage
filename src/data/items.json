@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Shirts",
+        "price": 20.99,
+        "imgUrl": "/images/shirt.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Shoes",
+        "price": 120.99,
+        "imgUrl": "/images/shoe.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Jackets",
+        "price": 50.99,
+        "imgUrl": "/images/jacket.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Laptop",
+        "price": 1250.99,
+        "imgUrl": "/images/jacket.jpg"
+    }
+]
