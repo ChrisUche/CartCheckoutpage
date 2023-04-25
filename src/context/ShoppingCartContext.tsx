@@ -1,6 +1,13 @@
 import { ReactNode, createContext, useContext } from "react";
 
-const ShoppingCartContext = createContext({})
+type ShoppingCartContext = {
+    getItemQuantity: (id: number) => number
+    increaseCartQuantity: (id: number) => void
+    decreaseCartQuantity: (id: number) => void
+    removeFromCaet: (id: number) => void
+}
+
+const ShoppingCartContext = createContext({} as ShoppingCartContext)
 
 export function useShoppingCart() {
     return useContext(ShoppingCartContext)
