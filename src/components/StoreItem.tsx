@@ -1,5 +1,6 @@
 import { Card} from "react-bootstrap"
 import { formatCurrency } from "../utilities/formatCurrency"
+import { useShoppingCart } from "../context/ShoppingCartContext"
 
 
 type StoreItemProps  = {
@@ -10,7 +11,12 @@ type StoreItemProps  = {
 }
 
 export function StoreItem({ id, name, price, imgUrl }:StoreItemProps) {
-    const quantity = 0
+    const { getItemQuantity,
+         increaseCartQuantity,
+         decreaseCartQuantity,
+         removeFromCart} = useShoppingCart()
+
+    const quantity = getItemQuantity(id)
     return (
         <Card className="h-full">
             <Card.Img src={imgUrl}  className=" h-52 w-fit- rounded-sm object-cover"/>
@@ -22,16 +28,16 @@ export function StoreItem({ id, name, price, imgUrl }:StoreItemProps) {
                 <div className="mt-auto">
                     { quantity === 0 ? 
                     (
-                       <button className="w-full bg-green-500  text-white font-bold"> + Add To Cart</button>
+                       <button className="w-full bg-green-500  text-white font-bold" onClick={() => increaseCartQuantity(id)}> + Add To Cart</button>
                     ) : <div className="flex flex-col items-center gap-2">
                            <div className="flex items-center justify-center gap-2">
-                              <button className="w-5 bg-green-500 rounded-sm text-white">-</button>
+                              <button className="w-5 bg-green-500 rounded-sm text-white" onClick={() => decreaseCartQuantity(id)}>-</button>
                               <div>
                                  <span className="font-bold">{quantity}</span> in Cart
                               </div>
-                              <button className=" w-5 bg-green-500 rounded-sm text-white">+</button>
+                              <button className=" w-5 bg-green-500 rounded-sm text-white" onClick={() => increaseCartQuantity(id)}>+</button>
                            </div>
-                           <button className=" w-20 bg-red-500 rounded-sm text-white">Remove</button>
+                           <button className=" w-20 bg-red-500 rounded-sm text-white" onClick={() => removeFromCart(id)}>Remove</button>
                         </div>}
                 </div>
             </Card.Body>

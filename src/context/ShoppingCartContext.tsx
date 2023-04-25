@@ -4,7 +4,7 @@ type ShoppingCartContext = {
     getItemQuantity: (id: number) => number
     increaseCartQuantity: (id: number) => void
     decreaseCartQuantity: (id: number) => void
-    removeFromCaet: (id: number) => void
+    removeFromCart: (id: number) => void
 }
 
 const ShoppingCartContext = createContext({} as ShoppingCartContext)
@@ -70,14 +70,20 @@ export function ShoppingCartProvider({ children }: ShoppingCartContextProps) {
         
     }
 
-    function removeFromCaet(id:number) {
+    function removeFromCart(id:number) {
         setCartItems(currItems => {
             return currItems.filter (item => item.id !== id)
         })
     }
 
 
-    return <ShoppingCartContext.Provider value={{getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCaet}}>
+    return <ShoppingCartContext.Provider
+              value={{
+                getItemQuantity,
+                increaseCartQuantity, 
+                decreaseCartQuantity, 
+                removeFromCart}}
+                >
         {children}
     </ShoppingCartContext.Provider>
 }
