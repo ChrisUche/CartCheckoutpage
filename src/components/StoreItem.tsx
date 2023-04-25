@@ -28,16 +28,16 @@ export function StoreItem({ id, name, price, imgUrl }:StoreItemProps) {
                 <div className="mt-auto">
                     { quantity === 0 ? 
                     (
-                       <button className="w-full bg-green-500  text-white font-bold" onClick={() => increaseCartQuantity(id)}> + Add To Cart</button>
+                       <button className="w-full bg-green-500  text-white font-bold hover:bg-green-400" onClick={() => increaseCartQuantity(id)}> + Add To Cart</button>
                     ) : <div className="flex flex-col items-center gap-2">
                            <div className="flex items-center justify-center gap-2">
-                              <button className="w-5 bg-green-500 rounded-sm text-white" onClick={() => decreaseCartQuantity(id)}>-</button>
+                              <button className="w-5 bg-green-400 rounded-sm text-white  hover:bg-green-500" onClick={() => decreaseCartQuantity(id)}>-</button>
                               <div>
                                  <span className="font-bold">{quantity}</span> in Cart
                               </div>
-                              <button className=" w-5 bg-green-500 rounded-sm text-white" onClick={() => increaseCartQuantity(id)}>+</button>
+                              <button className=" w-5 bg-green-400 rounded-sm text-white  hover:bg-green-500  " onClick={() => increaseCartQuantity(id)}>+</button>
                            </div>
-                           <button className=" w-20 bg-red-500 rounded-sm text-white" onClick={() => removeFromCart(id)}>Remove</button>
+                           <button className=" w-20 bg-red-500 rounded-sm text-white  hover:bg-red-700" onClick={() => removeFromCart(id)}>Remove</button>
                         </div>}
                 </div>
             </Card.Body>
