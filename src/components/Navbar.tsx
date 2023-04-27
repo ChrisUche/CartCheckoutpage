@@ -12,9 +12,12 @@
 
 import { Link } from "react-router-dom"
 import { ShoppingBagIcon } from '@heroicons/react/24/outline'
+import { useShoppingCart } from "../context/ShoppingCartContext"
 
 
 export function Navbar() {
+    const  { openCart, cartQuantity } = useShoppingCart()
+
     return (
         <div className=" bg-white shadow-sm mb-3  sticky">
             <div className=" px-3 py-2 flex">
@@ -29,11 +32,12 @@ export function Navbar() {
                        About
                    </Link>
                 </div>
-                <button className="w-7 h-7 bg-white-400 rounded-full  outline outline-1 flex items-center justify-center relative">
-                    <ShoppingBagIcon color="black" className="h-5 w-5" />
-                    <span className="w-4 h-4 bottom-0 right-0 bg-red-500 text-white rounded-full  flex items-center justify-center absolute translate-y-1/4 translate-x-1/4" >4</span>
 
-                 </button>
+                {cartQuantity > 0 && (<button className="w-7 h-7 bg-white-400 rounded-full  outline outline-1 flex items-center justify-center relative" onClick={openCart}>
+                    <ShoppingBagIcon color="black" className="h-5 w-5" />
+                    <span className="w-4 h-4 bottom-0 right-0 bg-red-500 text-white rounded-full  flex items-center justify-center absolute translate-y-1/4 translate-x-1/4" >{cartQuantity}</span>
+
+                 </button>)}
             </div>
         </div>
         ) 
