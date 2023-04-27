@@ -34,6 +34,8 @@ type CartItem ={
 export function ShoppingCartProvider({ children }: ShoppingCartContextProps) {
     const [cartItems, setCartItems] = useState<CartItem[]> ([])
 
+    const cartQuantity = cartItems.reduce((quantity, item) => item.quantity + quantity, 0)
+
     function getItemQuantity(id:number) {
         return cartItems.find(item => item.id === id)?.quantity || 0
         
@@ -88,7 +90,8 @@ export function ShoppingCartProvider({ children }: ShoppingCartContextProps) {
                 increaseCartQuantity, 
                 decreaseCartQuantity, 
                 removeFromCart,
-                cartItems
+                cartItems,
+                cartQuantity
             }}
                 >
         {children}
