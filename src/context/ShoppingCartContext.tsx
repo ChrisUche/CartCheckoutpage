@@ -102,6 +102,6 @@ export function ShoppingCartProvider({ children }: ShoppingCartContextProps) {
             }}
                 >
         {children}
-        <ShoppingCart/>
+        <ShoppingCart isOpen={IsOpen}/>
     </ShoppingCartContext.Provider>
 }
