@@ -13,6 +13,11 @@ export function CartItem({ id, quantity }: CartItemProps) {
     return (
         <div className="flex flex-row gap-2 items-center">
             <img src={item.imgUrl}  className=" h-20 w-32 rounded-sm object-cover"/>
+            <div className="me-auto">
+                <div>
+                    {item.name}
+                </div>
+            </div>
         </div>
     )
 }
