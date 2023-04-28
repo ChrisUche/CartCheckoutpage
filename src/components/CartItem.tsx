@@ -19,6 +19,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
                     {item.name} {quantity > 1 && <span className=" text-xs opacity-70">x{quantity}</span>}
                 </div>
             <div className=" text-xs font-mono">{formatCurrency(item.price)}</div>
+            <div className=" text-xs font-mono">{formatCurrency(item.price * quantity)}</div>
             </div>
         </div>
     )
