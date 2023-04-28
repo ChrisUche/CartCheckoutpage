@@ -3,6 +3,7 @@ import 'react-modern-drawer/dist/index.css';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { XMarkIcon }  from '@heroicons/react/24/outline';
 import { CartItem } from './CartItem';
+import { formatCurrency } from '../utilities/formatCurrency';
 
 
 type ShoppingCartProps = {
@@ -22,6 +23,7 @@ export function ShoppingCart({ isOpen } : ShoppingCartProps) {
                         {cartItems.map(item => 
                         <CartItem key={item.id} {...item} />)}
                     </div>
+                    <div className='ml-48 font-bold text-xl'>Total {formatCurrency(cartItems.reduce)}</div>
                 </body>
             </Drawer>
     )

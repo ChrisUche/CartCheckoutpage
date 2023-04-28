@@ -20,6 +20,8 @@ export function CartItem({ id, quantity }: CartItemProps) {
                 </div>
             <div className=" text-xs font-mono">{formatCurrency(item.price)}</div>
             <div className=" text-xs font-mono">{formatCurrency(item.price * quantity)}</div>
+            <button className="w-5 h-5 rounded bg-slate-500" onClick={() => removeFromCart(item.id)}>&times;</button>
+
             </div>
         </div>
     )
