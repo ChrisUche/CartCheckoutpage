@@ -23,7 +23,7 @@ export function ShoppingCart({ isOpen } : ShoppingCartProps) {
                         {cartItems.map(item => 
                         <CartItem key={item.id} {...item} />)}
                     </div>
-                    <div className='ml-48 font-bold text-xl'>Total {formatCurrency(cartItems.reduce)}</div>
+                    <div className='ml-20 font-bold text-xl'>Total {formatCurrency(cartItems.reduce)}</div>
                 </body>
             </Drawer>
     )
