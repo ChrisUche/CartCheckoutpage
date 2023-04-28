@@ -2,6 +2,7 @@ import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { XMarkIcon }  from '@heroicons/react/24/outline';
+import { CartItem } from './CartItem';
 
 
 type ShoppingCartProps = {
@@ -19,7 +20,7 @@ export function ShoppingCart({ isOpen } : ShoppingCartProps) {
                 <body>
                     <div className='flex flex-col gap-3'>
                         {cartItems.map(item => 
-                        <CartItem key={cartItems.id} {...item} />)}
+                        <CartItem key={item.id} {...item} />)}
                     </div>
                 </body>
             </Drawer>
