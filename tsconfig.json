@@ -19,6 +19,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "cypress/e2e/1-getting-started/addcart.cy.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
